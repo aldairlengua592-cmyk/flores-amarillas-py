@@ -52,16 +52,18 @@ HTML = r"""<!doctype html>
       </div>
 
       <div class="gift-layout">
+        <div class="bouquet-column">
+          <p class="bouquet-label">que estas flores te regalen una sonrisa</p>
         <div class="bouquet-area">
           <span class="orbit orbit-one" aria-hidden="true"></span>
           <span class="orbit orbit-two" aria-hidden="true"></span>
-          <span class="bouquet-label" aria-hidden="true">que estas flores te regalen una sonrisa</span>
           <button id="bouquet" class="bouquet" type="button"
             aria-label="Arreglo de nueve flores amarillas. Pulsa para enviar corazones.">
             <!-- Flores, pétalos, hojas y tallos creados con elementos HTML en script.js. -->
             <span class="ribbon" aria-hidden="true"><i></i><b>con mucho cariño</b></span>
           </button>
           <p class="touch-hint">✧ &nbsp; Toca las flores, tienen un poquito de magia</p>
+        </div>
         </div>
 
         <div class="letter-column">
@@ -133,10 +135,10 @@ h2 { font-size: clamp(36px, 4.5vw, 59px); margin: 12px 0; }
 h2 span { color: var(--primary); font-style: italic; }
 .gift-heading > p:last-child { color: var(--muted); font-size: 14px; }
 .gift-layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 52px; align-items: center; }
-.bouquet-area { position: relative; min-width: 0; height: 555px; }
-.bouquet { position: absolute; width: 440px; height: 490px; left: 50%; top: 15px; transform: translateX(-50%); border: 0; background: transparent; -webkit-tap-highlight-color: transparent; }
+.bouquet-area { position: relative; min-width: 0; height: 575px; }
+.bouquet { position: absolute; width: 440px; height: 490px; left: 50%; top: 55px; transform: translateX(-50%); border: 0; background: transparent; -webkit-tap-highlight-color: transparent; }
 .bouquet::before { content: ''; position: absolute; width: 300px; height: 330px; left: 70px; top: 45px; background: radial-gradient(ellipse, #dfbc3420, transparent 68%); filter: blur(15px); }
-.bouquet-label { position: absolute; top: 37px; left: 0; color: #9da78a; font: italic 13px Georgia, serif; transform: rotate(-12deg); }
+.bouquet-label { margin: 20px 0 12px; padding: 0 12px; text-align: center; color: #9da78a; font: italic 13px/1.6 Georgia, serif; overflow-wrap: anywhere; }
 .orbit { position: absolute; border: 1px solid #d6c97814; border-radius: 50%; width: 390px; height: 390px; left: 50%; top: 38px; transform: translateX(-50%) rotate(-20deg); pointer-events: none; }
 .orbit-two { width: 440px; height: 310px; top: 100px; transform: translateX(-50%) rotate(-40deg); }
 /* Cada flor tiene su ángulo y retraso; los tallos se unen bajo el lazo. */
@@ -205,11 +207,12 @@ footer b { margin-left: 10px; }
   .gift { padding: 28px 24px 0; max-width: 560px; }
   .gift-layout { grid-template-columns: 1fr; gap: 15px; }
   /* El escenario mantiene sus proporciones y no ensancha la página. */
-  .bouquet-area { height: calc(490px * var(--bouquet-scale, .65) + 50px); overflow: hidden; overflow: clip; }
-  .bouquet { top: 20px; transform: translateX(-50%) scale(var(--bouquet-scale, .65)); transform-origin: top center; }
+  /* Los pétalos sobresalen del botón: reservar 55px evita cortar la flor superior. */
+  .bouquet-area { height: calc(490px * var(--bouquet-scale, .65) + 85px); overflow: hidden; overflow: clip; }
+  .bouquet { top: 55px; transform: translateX(-50%) scale(var(--bouquet-scale, .65)); transform-origin: top center; }
   .orbit { width: 80%; height: 70%; top: 35px; }
   .orbit-two { width: 85%; height: 55%; top: 70px; }
-  .bouquet-label { top: 5px; left: 0; width: 100%; text-align: center; transform: none; font-size: 11px; }
+  .bouquet-label { font-size: 12px; }
   .touch-hint { padding: 0 8px; line-height: 1.5; }
   .letter-column { padding-top: 0; }
   .header-note { font-size: 12px; }
